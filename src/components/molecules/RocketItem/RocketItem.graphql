@@ -1,0 +1,5 @@
+fragment RocketItem on Rocket {
+  id
+  description
+  name
+}
