@@ -1,0 +1,6 @@
+@font-face {
+  font-family: "Lato-Medium";
+  src:
+    local("Lato-Medium"),
+    url(../fonts/Lato/Lato-Medium.woff) format("woff");
+}
