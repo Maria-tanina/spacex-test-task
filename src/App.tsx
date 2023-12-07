@@ -1,11 +1,18 @@
 import React from "react";
-import RocketList from "./components/organisms/RocketList/RocketList";
+import { Route, Routes } from "react-router-dom";
 import { RecoilRoot } from "recoil";
+import Layout from "./components/organisms/Layout";
+import { HOME_PATH } from "./constants/paths";
+import HomePage from "./components/pages/HomePage";
 
 function App() {
   return (
     <RecoilRoot>
-      <RocketList />
+      <Layout>
+        <Routes>
+          <Route path={HOME_PATH} element={<HomePage />} />
+        </Routes>
+      </Layout>
     </RecoilRoot>
   );
 }

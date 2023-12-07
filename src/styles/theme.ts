@@ -14,6 +14,13 @@ const theme = {
     secondary: "Syne, sans-serif",
   },
 
+  fontSizes: {
+    small: "16px",
+    regular: "24px",
+    medium: "32px",
+    large: "310px",
+  },
+
   media: {
     extraLarge: "(max-width: 1140px)",
     large: "(max-width: 960px)",
@@ -23,13 +30,14 @@ const theme = {
 
   // in px
   sizes: {
-    header: { height: 80 },
-    container: { width: 1280 },
+    header: { height: "80px" },
+    container: { width: "1310px" },
   },
 
   // in ms
   durations: {
-    ms300: 300,
+    ms400: "400ms",
+    ms800: "800ms",
   },
 };
 

@@ -12,8 +12,6 @@ export default createGlobalStyle`
   
   body {
     font-family: ${theme.fonts.main};
-    color: ${theme.colors.white};
-    font-weight: 500;
   }
 
   ul, ol {
