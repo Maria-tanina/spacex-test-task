@@ -1,7 +1,11 @@
 import { FC } from "react";
 import { useGetRocketsQuery } from "./RocketList.generated";
 import RocketItem from "../../molecules/RocketItem/RocketItem";
-import { StyledRocketList, StyledDotsWrapper } from "./styles";
+import {
+  StyledRocketList,
+  StyledDotsWrapper,
+  StyledRocketListWrapper,
+} from "./styles";
 import { StyledCarouselDot } from "../../atoms/CarouselDot/styles";
 import { useRecoilState } from "recoil";
 import { rocketCarouselState } from "../../../state/atoms";
@@ -15,11 +19,12 @@ import { Container } from "../../../styles/container";
 import { StyledCarouselButton } from "../../atoms/CarouselButton/style";
 import arrowLeft from "../../../assets/icons/ArrowLeft.svg";
 import arrowRight from "../../../assets/icons/ArrowRight.svg";
+import Spinner from "../../atoms/Spinner";
 
 const RocketList: FC = () => {
   const { data, loading, error } = useGetRocketsQuery();
+
   const [activeSlide, setActiveSlide] = useRecoilState(rocketCarouselState);
-  const slidesPerRow = 3;
 
   const totalSlides = data?.rockets?.length || 0;
 
@@ -37,35 +42,33 @@ const RocketList: FC = () => {
     }
   };
 
+  if (error) {
+    return <div>{error.message || "Oops! Some error occurred"}</div>;
+  }
+
   return (
     <StyledToursSection>
       <Container>
         <StyledToursHeader>
           <StyledToursTitle>popular tours</StyledToursTitle>
-          <StyledCarouselArrows>
-            <StyledCarouselButton onClick={() => handleArrowClick("left")}>
-              <img src={arrowLeft} alt="arrow left" />
-            </StyledCarouselButton>
-            <StyledCarouselButton onClick={() => handleArrowClick("right")}>
-              <img src={arrowRight} alt="arrow right" />
-            </StyledCarouselButton>
-          </StyledCarouselArrows>
+          {!loading && (
+            <StyledCarouselArrows>
+              <StyledCarouselButton onClick={() => handleArrowClick("left")}>
+                <img src={arrowLeft} alt="arrow left" />
+              </StyledCarouselButton>
+              <StyledCarouselButton onClick={() => handleArrowClick("right")}>
+                <img src={arrowRight} alt="arrow right" />
+              </StyledCarouselButton>
+            </StyledCarouselArrows>
+          )}
         </StyledToursHeader>
 
         <div>
-          {error && "Error"}
           {loading ? (
-            "Loading"
+            <Spinner />
           ) : (
-            <div style={{ overflow: "hidden" }}>
-              <StyledRocketList
-                style={{
-                  transition: "transform 0.5s ease",
-                  transform: `translateX(-${
-                    activeSlide * (102 / slidesPerRow)
-                  }%)`,
-                }}
-              >
+            <StyledRocketListWrapper>
+              <StyledRocketList $activeSlide={activeSlide}>
                 {data?.rockets &&
                   data.rockets.map(
                     (rocket, i) =>
@@ -84,7 +87,7 @@ const RocketList: FC = () => {
                   />
                 ))}
               </StyledDotsWrapper>
-            </div>
+            </StyledRocketListWrapper>
           )}
         </div>
       </Container>

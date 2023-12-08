@@ -11,14 +11,14 @@ export const StyledRocketCard = styled.div(
 );
 
 export const StyledRocketBox = styled.div`
-    padding: 32px 32px 24px;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
+  padding: 32px 32px 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 `;
 
 export const StyledRocketImage = styled.img`
-    max-width: 100%;
+  max-width: 100%;
 `;
 
 export const StyledRocketTitle = styled.h5(
@@ -46,7 +46,7 @@ export const StyledRocketDescription = styled.div(
 );
 
 export const StyledRocketButtons = styled.div`
-    display: flex;
-    justify-content: space-between;
-    gap: 16px;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
 `;

@@ -15,12 +15,12 @@ export const StyledToursTitle = styled.h2(
 );
 
 export const StyledToursHeader = styled.div`
-     display: flex;
-     justify-content: space-between;
-     margin-bottom: 43px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 43px;
 `;
 
 export const StyledCarouselArrows = styled.div`
- display: flex;
- gap: 16px;
+  display: flex;
+  gap: 16px;
 `;
