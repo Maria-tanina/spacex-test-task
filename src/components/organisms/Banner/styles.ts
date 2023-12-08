@@ -24,7 +24,7 @@ export const StyledTitle = styled.div(
 `
 );
 
-export const StyledBannerWrapper = styled.div<{ $bg: string }>(
+export const StyledBannerWrapper = styled.section<{ $bg: string }>(
   ({ theme: { colors, durations }, $bg }) => `
   min-height: 100vh;
   display: flex;
@@ -75,4 +75,5 @@ export const StyledScroller = styled.div`
   align-items: center;
   line-height: 40px;
   gap: 8px;
+  cursor: pointer;
 `;

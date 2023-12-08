@@ -8,6 +8,7 @@ export default createGlobalStyle`
     box-sizing: border-box;
     border: 0;
     vertical-align: baseline;
+    scroll-behavior: smooth;
   }
   
   body {

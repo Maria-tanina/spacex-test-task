@@ -21,3 +21,5 @@ export const slides: ISlide[] = [
     alt: "space",
   },
 ];
+
+export const rocketImages = [image1, image2, image3];

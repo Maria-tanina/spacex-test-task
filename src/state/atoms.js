@@ -1,6 +1,11 @@
 import { atom } from "recoil";
 
-const favoritesState = atom({
-  key: "favorites",
-  default: [],
+export const bannerState = atom({
+  key: "bannerCarousel",
+  default: 0,
+});
+
+export const rocketCarouselState = atom({
+  key: "rocketCarousel",
+  default: 0,
 });

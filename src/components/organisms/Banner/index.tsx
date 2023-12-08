@@ -5,18 +5,21 @@ import {
   StyledScroller,
   StyledTitle,
 } from "./styles";
-import { FC, useEffect, useState } from "react";
+import { FC, useEffect } from "react";
 import { ISlide } from "../../../mockData/carouselData";
 import { StyledCarouselDot } from "../../atoms/CarouselDot/styles";
 import { BANNER_INTERVAL } from "../../../constants/timers";
 import ScrollButton from "../../atoms/ScrollButton";
+import { scrollToBottom } from "../../../helpers/scrollToBottom";
+import { useRecoilState } from "recoil";
+import { bannerState } from "../../../state/atoms";
 
 interface IBannerProps {
   slides: ISlide[];
 }
 
 const Banner: FC<IBannerProps> = ({ slides }) => {
-  const [activeSlide, setActiveSlide] = useState(0);
+  const [activeSlide, setActiveSlide] = useRecoilState(bannerState);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -43,7 +46,9 @@ const Banner: FC<IBannerProps> = ({ slides }) => {
             <StyledDotsWrapper>
               {slides.map((slide, i) => (
                 <StyledCarouselDot
+                  key={slide.src}
                   $isActive={i === activeSlide}
+                  $color="white"
                   onClick={() => setActiveSlide(i)}
                 />
               ))}
@@ -52,7 +57,7 @@ const Banner: FC<IBannerProps> = ({ slides }) => {
           <span>u</span>
         </span>
       </StyledTitle>
-      <StyledScroller>
+      <StyledScroller onClick={scrollToBottom}>
         Explore tours
         <ScrollButton />
       </StyledScroller>
