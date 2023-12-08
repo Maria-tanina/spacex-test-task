@@ -13,16 +13,40 @@ export const StyledTitle = styled.div(
     padding-top: 15%;
     z-index: 100;
     flex-grow: 1;
-
-    span {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 310px;
-      text-shadow:0px 1px 0 rgb(0,0,0),0px -1px 0 rgb(0,0,0),1px 0px 0 rgb(0,0,0),-1px 0px 0 rgb(0,0,0),1px 1px 0 rgb(0,0,0),1px -1px 0 rgb(0,0,0),-1px 1px 0 rgb(0,0,0),-1px -1px 0 rgb(0,0,0);-webkit-text-shadow:0px 1px 0 rgb(0,0,0),0px -1px 0 rgb(0,0,0),1px 0px 0 rgb(0,0,0),-1px 0px 0 rgb(0,0,0),1px 1px 0 rgb(0,0,0),1px -1px 0 rgb(0,0,0),-1px 1px 0 rgb(0,0,0),-1px -1px 0 rgb(0,0,0);-moz-text-shadow:0px 1px 0 rgb(0,0,0),0px -1px 0 rgb(0,0,0),1px 0px 0 rgb(0,0,0),-1px 0px 0 rgb(0,0,0),1px 1px 0 rgb(0,0,0),1px -1px 0 rgb(0,0,0),-1px 1px 0 rgb(0,0,0),-1px -1px 0 rgb(0,0,0);
-    }
 `
 );
+
+export const StyledMainTitle = styled.div`
+  position: relative;
+  font-size: 310px;
+  text-shadow:
+    0 1px 0 rgb(0, 0, 0),
+    0px -1px 0 rgb(0, 0, 0),
+    1px 0px 0 rgb(0, 0, 0),
+    -1px 0px 0 rgb(0, 0, 0),
+    1px 1px 0 rgb(0, 0, 0),
+    1px -1px 0 rgb(0, 0, 0),
+    -1px 1px 0 rgb(0, 0, 0),
+    -1px -1px 0 rgb(0, 0, 0);
+  -webkit-text-shadow:
+    0px 1px 0 rgb(0, 0, 0),
+    0px -1px 0 rgb(0, 0, 0),
+    1px 0px 0 rgb(0, 0, 0),
+    -1px 0px 0 rgb(0, 0, 0),
+    1px 1px 0 rgb(0, 0, 0),
+    1px -1px 0 rgb(0, 0, 0),
+    -1px 1px 0 rgb(0, 0, 0),
+    -1px -1px 0 rgb(0, 0, 0);
+  -moz-text-shadow:
+    0px 1px 0 rgb(0, 0, 0),
+    0px -1px 0 rgb(0, 0, 0),
+    1px 0px 0 rgb(0, 0, 0),
+    -1px 0px 0 rgb(0, 0, 0),
+    1px 1px 0 rgb(0, 0, 0),
+    1px -1px 0 rgb(0, 0, 0),
+    -1px 1px 0 rgb(0, 0, 0),
+    -1px -1px 0 rgb(0, 0, 0);
+`;
 
 export const StyledBannerWrapper = styled.section<{ $bg: string }>(
   ({ theme: { colors, durations }, $bg }) => `
@@ -55,10 +79,9 @@ export const StyledDotsWrapper = styled.div`
   z-index: 100;
   gap: 8px;
   position: absolute;
-`;
-
-export const StyledLetter = styled.span`
-  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-100%, -50%);
 `;
 
 export const StyledScroller = styled.div`

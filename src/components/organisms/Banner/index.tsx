@@ -1,7 +1,7 @@
 import {
   StyledBannerWrapper,
   StyledDotsWrapper,
-  StyledLetter,
+  StyledMainTitle,
   StyledScroller,
   StyledTitle,
 } from "./styles";
@@ -39,23 +39,19 @@ const Banner: FC<IBannerProps> = ({ slides }) => {
     <StyledBannerWrapper $bg={slides[activeSlide].src}>
       <StyledTitle>
         The space is waiting for
-        <span>
-          <span>y</span>
-          <StyledLetter>
-            o
-            <StyledDotsWrapper>
-              {slides.map((slide, i) => (
-                <StyledCarouselDot
-                  key={slide.src}
-                  $isActive={i === activeSlide}
-                  $color="white"
-                  onClick={() => setActiveSlide(i)}
-                />
-              ))}
-            </StyledDotsWrapper>
-          </StyledLetter>
-          <span>u</span>
-        </span>
+        <StyledMainTitle>
+          You
+          <StyledDotsWrapper>
+            {slides.map((slide, i) => (
+              <StyledCarouselDot
+                key={slide.src}
+                $isActive={i === activeSlide}
+                $color="white"
+                onClick={() => setActiveSlide(i)}
+              />
+            ))}
+          </StyledDotsWrapper>
+        </StyledMainTitle>
       </StyledTitle>
       <StyledScroller onClick={scrollToBottom}>
         Explore tours
