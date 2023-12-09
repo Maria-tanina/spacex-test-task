@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
+import { HTMLAttributes, RefObject } from "react";
 
 export const StyledHeader = styled.header(
   ({ theme: { fontSizes, sizes } }) => `
@@ -18,13 +19,18 @@ export const StyledHeaderWrapper = styled.header`
   align-items: center;
   height: 100%;
 `;
+interface IStyledMenuProps extends HTMLAttributes<HTMLUListElement> {
+  $open: boolean;
+  ref: RefObject<HTMLDivElement>;
+}
 
-export const StyledMenu = styled.ul<{ $open: boolean }>(
+export const StyledMenu = styled.ul<IStyledMenuProps>(
   ({ theme: { media }, $open }) => `
   display: flex;
   justify-content: space-between;
   gap: 32px;
   align-items: center;
+  overflow-y: auto;
   
   @media${media.large} {
     display: block;

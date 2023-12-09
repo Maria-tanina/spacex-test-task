@@ -10,15 +10,15 @@ import { ISlide } from "../../../mockData/carouselData";
 import { StyledCarouselDot } from "../../atoms/CarouselDot/styles";
 import { BANNER_INTERVAL } from "../../../constants/timers";
 import ScrollButton from "../../atoms/ScrollButton";
-import { scrollToBottom } from "../../../helpers/scrollToBottom";
 import { useRecoilState } from "recoil";
 import { bannerState } from "../../../state/atoms";
 
 interface IBannerProps {
   slides: ISlide[];
+  scrollFunc: () => void;
 }
 
-const Banner: FC<IBannerProps> = ({ slides }) => {
+const Banner: FC<IBannerProps> = ({ slides, scrollFunc }) => {
   const [activeSlide, setActiveSlide] = useRecoilState(bannerState);
 
   useEffect(() => {
@@ -57,7 +57,7 @@ const Banner: FC<IBannerProps> = ({ slides }) => {
           <span>u</span>
         </span>
       </StyledTitle>
-      <StyledScroller onClick={scrollToBottom}>
+      <StyledScroller onClick={scrollFunc}>
         Explore tours
         <ScrollButton />
       </StyledScroller>

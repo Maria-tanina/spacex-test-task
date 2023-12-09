@@ -14,6 +14,8 @@ export const StyledActionButton = styled.button<{ $width?: string }>(
     color: ${colors.black};
     cursor: pointer;
     overflow: hidden;
+    position: relative;
+    z-index: 100;
     
     @media${media.large} {
       padding: 0.5em 0.4em;

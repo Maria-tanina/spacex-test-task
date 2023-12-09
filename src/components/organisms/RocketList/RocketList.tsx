@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, HTMLAttributes, LegacyRef } from "react";
 import { useGetRocketsQuery } from "./RocketList.generated";
 import RocketItem from "../../molecules/RocketItem/RocketItem";
 import {
@@ -21,7 +21,11 @@ import arrowLeft from "../../../assets/icons/ArrowLeft.svg";
 import arrowRight from "../../../assets/icons/ArrowRight.svg";
 import Spinner from "../../atoms/Spinner";
 
-const RocketList: FC = () => {
+interface IRocketListProps extends HTMLAttributes<HTMLDivElement> {
+  rocketListRef: LegacyRef<HTMLDivElement> | undefined;
+}
+
+const RocketList: FC<IRocketListProps> = ({ rocketListRef }) => {
   const { data, loading, error } = useGetRocketsQuery();
 
   const [activeSlide, setActiveSlide] = useRecoilState(rocketCarouselState);
@@ -47,7 +51,7 @@ const RocketList: FC = () => {
   }
 
   return (
-    <StyledToursSection>
+    <StyledToursSection ref={rocketListRef}>
       <Container>
         <StyledToursHeader>
           <StyledToursTitle>popular tours</StyledToursTitle>

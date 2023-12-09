@@ -11,6 +11,8 @@ export const StyledLikeButton = styled.button<{ $isActive: boolean }>(
   background-color: ${$isActive ? colors.pink : colors.lightGray};
   flex: 0 0 auto;
   transition: all 0.4s;
+  position: relative;
+  z-index: 100;
   
   @media${media.large} {
     padding: 0.5em 0.4em;

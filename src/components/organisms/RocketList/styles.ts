@@ -55,7 +55,6 @@ export const StyledToursHeader = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-bottom: 43px;
-
 `;
 
 export const StyledCarouselArrows = styled.div`

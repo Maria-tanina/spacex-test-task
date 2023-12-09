@@ -18,7 +18,7 @@ export const StyledRocketCard = styled.div<{ $hasDeleteButton?: boolean }>(
         max-width: 100%;
       }
     `
-    }
+    };
     display: flex;
     flex-direction: column;
 `

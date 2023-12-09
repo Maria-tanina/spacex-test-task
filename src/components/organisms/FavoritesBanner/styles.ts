@@ -28,17 +28,26 @@ export const StyledFavoritesBanner = styled.section(
 `
 );
 export const StyledFavoritesTitle = styled.h1(
-  ({ theme: { colors } }) => `
+  ({ theme: { colors, media } }) => `
   color: ${colors.white};
   text-align: center;
   font-family: Syne;
   position: relative;
   z-index: 99;
-  font-size: 48px;
+  font-size: 3.333vw;
   font-weight: 800;
   text-transform: uppercase;
+  word-break: break-word;
+  
+  @media${media.medium} {
+  font-size: 30px;
+  }
 `
 );
+
+export const ads = styled.a`
+  word-break: break-word;
+`;
 
 export const StyledClearButton = styled.div(
   ({ theme: { colors } }) => `

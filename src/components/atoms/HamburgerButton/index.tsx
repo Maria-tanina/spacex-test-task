@@ -1,8 +1,13 @@
 import { useRecoilState } from "recoil";
 import { menuState } from "../../../state/atoms";
 import { StyledBurger } from "./styles";
+import { FC, LegacyRef } from "react";
 
-const HamburgerButton = () => {
+interface IHamburgerButtonProps {
+  burgerRef: LegacyRef<HTMLButtonElement> | undefined;
+}
+
+const HamburgerButton: FC<IHamburgerButtonProps> = ({ burgerRef }) => {
   const [isMenuOpen, setIsMenuOpen] = useRecoilState(menuState);
 
   const clickHandler = () => {
@@ -10,7 +15,7 @@ const HamburgerButton = () => {
   };
 
   return (
-    <StyledBurger $open={isMenuOpen} onClick={clickHandler}>
+    <StyledBurger $open={isMenuOpen} onClick={clickHandler} ref={burgerRef}>
       <div />
       <div />
       <div />

@@ -8,15 +8,14 @@ interface StyledCarouselDotProps {
 export const StyledCarouselDot = styled.div<StyledCarouselDotProps>(
   ({ $isActive, $color }) => `
   position: relative;
-  z-index: 100;
   width: 24px;
   height: 24px;
   border-radius: 50%;
   border: 1px solid ${$color};
   cursor: pointer;
   ${
-    $isActive
-      ? `
+    $isActive &&
+    `
      &::after {
     content: "";
     position: absolute;
@@ -28,7 +27,6 @@ export const StyledCarouselDot = styled.div<StyledCarouselDotProps>(
     background-color: ${$color};
     border-radius: 50%;
   }`
-      : ""
   }
  
 `

@@ -10,12 +10,19 @@ export const StyledTitle = styled.div(
     line-height: normal;
     text-transform: uppercase;
     position: relative;
-    padding-top: 230px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding-bottom: 35px;
+    padding-top: 150px;
     z-index: 100;
     flex-grow: 1;
+    word-break: break-word;
     
     @media${media.medium} {
-        padding-top: 300px;
+      justify-content: center;
+      font-size: 20px;
     }
     
     span {
@@ -25,8 +32,6 @@ export const StyledTitle = styled.div(
       font-size: 21.528vw;
       text-shadow:0px 1px 0 rgb(0,0,0),0px -1px 0 rgb(0,0,0),1px 0px 0 rgb(0,0,0),-1px 0px 0 rgb(0,0,0),1px 1px 0 rgb(0,0,0),1px -1px 0 rgb(0,0,0),-1px 1px 0 rgb(0,0,0),-1px -1px 0 rgb(0,0,0);-webkit-text-shadow:0px 1px 0 rgb(0,0,0),0px -1px 0 rgb(0,0,0),1px 0px 0 rgb(0,0,0),-1px 0px 0 rgb(0,0,0),1px 1px 0 rgb(0,0,0),1px -1px 0 rgb(0,0,0),-1px 1px 0 rgb(0,0,0),-1px -1px 0 rgb(0,0,0);-moz-text-shadow:0px 1px 0 rgb(0,0,0),0px -1px 0 rgb(0,0,0),1px 0px 0 rgb(0,0,0),-1px 0px 0 rgb(0,0,0),1px 1px 0 rgb(0,0,0),1px -1px 0 rgb(0,0,0),-1px 1px 0 rgb(0,0,0),-1px -1px 0 rgb(0,0,0);
     }
-    
-   
 `
 );
 
@@ -39,6 +44,7 @@ export const StyledBannerWrapper = styled.section<{ $bg: string }>(
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  align-items: center;
   position: relative;
   z-index: 5;
   background: url(${$bg}) no-repeat;

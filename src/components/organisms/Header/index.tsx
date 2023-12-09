@@ -18,9 +18,17 @@ import HamburgerButton from "../../atoms/HamburgerButton";
 import { useRecoilState } from "recoil";
 import { menuState } from "../../../state/atoms";
 import { menuConfig } from "../../../mockData/menuConfig";
+import { useOutsideClick } from "../../../hooks/useOnClickOutside";
+import { LegacyRef, useRef } from "react";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useRecoilState(menuState);
+
+  const burgerRef = useRef<HTMLButtonElement>(null);
+
+  const ref = useOutsideClick(() => {
+    setIsMenuOpen(false);
+  }, [burgerRef]);
 
   const closeMenu = () => {
     setIsMenuOpen(false);
@@ -33,10 +41,10 @@ const Header = () => {
           <NavLink to={HOME_PATH}>
             <StyledLogo src={logo} />
           </NavLink>
-          <StyledMenu $open={isMenuOpen}>
+          <StyledMenu $open={isMenuOpen} ref={ref}>
             {menuConfig.map((menuItem) => {
               return (
-                <StyledMenuItem onClick={closeMenu}>
+                <StyledMenuItem onClick={closeMenu} key={menuItem.name}>
                   <NavLink to={menuItem.link}>{menuItem.name}</NavLink>
                 </StyledMenuItem>
               );
@@ -56,7 +64,9 @@ const Header = () => {
             </StyledNavLink>
             <RippleButton>Sign in</RippleButton>
           </StyledAsideMenu>
-          <HamburgerButton />
+          <HamburgerButton
+            burgerRef={burgerRef as LegacyRef<HTMLButtonElement> | undefined}
+          />
         </StyledHeaderWrapper>
       </Container>
     </StyledHeader>
