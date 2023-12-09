@@ -1,8 +1,11 @@
 import styled from "styled-components";
 
 export const StyledFavoritesListWrapper = styled.section(
-  ({ theme: { sizes } }) => `
+  ({ theme: { sizes, media } }) => `
     padding: ${sizes.section.paddings};
+    @media${media.small} {
+      padding: 60px 0;    
+    }
 `
 );
 

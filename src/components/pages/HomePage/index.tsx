@@ -1,4 +1,4 @@
-import Banner from "../../organisms/Banner";
+import Banner from "../../organisms/HomeBanner";
 import { slides } from "../../../mockData/carouselData";
 import RocketList from "../../organisms/RocketList/RocketList";
 import { LegacyRef, useRef } from "react";

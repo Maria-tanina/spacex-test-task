@@ -5,6 +5,7 @@ import Layout from "./components/organisms/Layout";
 import { FAVORITES_PATH, HOME_PATH } from "./constants/paths";
 import HomePage from "./components/pages/HomePage";
 import FavoritesPage from "./components/pages/FavoritesPage";
+import NotFoundPage from "./components/pages/NotFoundPage";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Routes>
           <Route path={HOME_PATH} element={<HomePage />} />
           <Route path={FAVORITES_PATH} element={<FavoritesPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Layout>
     </RecoilRoot>

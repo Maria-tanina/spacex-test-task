@@ -1,5 +1,5 @@
 import { atom } from "recoil";
-import { RocketItemFragment } from "../components/molecules/RocketItem/RocketItem.generated";
+import { TRocketItem } from "../types";
 
 export const bannerState = atom({
   key: "bannerCarousel",
@@ -13,7 +13,7 @@ export const rocketCarouselState = atom({
 
 export const favoritesState = atom({
   key: "favorites",
-  default: [] as RocketItemFragment[],
+  default: [] as TRocketItem[],
 });
 
 export const menuState = atom({

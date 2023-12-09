@@ -44,9 +44,13 @@ const RocketItem: FC<IRocketItemProps> = ({
   };
 
   const addToFavorites = (rocket: RocketItemFragment) => {
+    const newRocket = {
+      ...rocket,
+      index,
+    };
     isFavorite
       ? deleteFromFavorites(rocket)
-      : setFavorites([...favorites, rocket]);
+      : setFavorites([...favorites, newRocket]);
   };
 
   return (

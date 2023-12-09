@@ -28,11 +28,11 @@ const FavoritesList = () => {
           Clear all
         </StyledClearButton>
         <StyledFavoritesList>
-          {favorites.map((item, i) => (
+          {favorites.map((item) => (
             <RocketItem
               key={item.id}
               rocket={item}
-              index={i}
+              index={item.index}
               hasDeleteButton={true}
             />
           ))}
