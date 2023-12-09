@@ -2,13 +2,11 @@ import styled from "styled-components";
 import { RIPPLE_TIMEOUT } from "../../../constants/timers";
 
 export const StyledActionButton = styled.button<{ $width?: string }>(
-  ({ theme: { colors }, $width }) => `
+  ({ theme: { colors, media }, $width }) => `
     position: relative;
     background-color: ${colors.lightBlue};
-    height: 53px;
-    max-width: ${$width || "163px"};
-    width: 100%;
-    flex: 1 0 auto;
+    padding: 0.5em 1.4em;
+    flex: 1 1 auto;
     font-size: 24px;
     font-family: Syne;
     font-weight: 600;
@@ -16,6 +14,11 @@ export const StyledActionButton = styled.button<{ $width?: string }>(
     color: ${colors.black};
     cursor: pointer;
     overflow: hidden;
+    
+    @media${media.large} {
+      padding: 0.5em 0.4em;
+      font-size: 18px;
+    }
 
     & > .ripple {
       position: absolute;

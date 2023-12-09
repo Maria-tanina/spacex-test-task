@@ -33,6 +33,7 @@ const theme = {
   sizes: {
     header: { height: "80px" },
     container: { width: "1310px" },
+    section: { paddings: "96px 0" },
   },
 
   // in ms

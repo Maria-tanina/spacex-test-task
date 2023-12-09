@@ -19,15 +19,34 @@ export const StyledHeaderWrapper = styled.header`
   height: 100%;
 `;
 
-export const StyledMenu = styled.ul`
+export const StyledMenu = styled.ul<{ $open: boolean }>(
+  ({ theme: { media }, $open }) => `
   display: flex;
   justify-content: space-between;
   gap: 32px;
   align-items: center;
-`;
+  
+  @media${media.large} {
+    display: block;
+    position: fixed;
+    padding: 44px 60px 40px;
+    right: 0;
+    bottom: 0;
+    width: 400px;
+    background-color: #001698;
+    transform: ${$open ? "translateX(0)" : "translateX(100%)"};
+    transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    top: 0;
+    height: 100%;
+    width: 240px;
+    background: rgba(0,0,0,.8);
+    z-index: 150;
+  }
+`
+);
 
 export const StyledMenuItem = styled.li(
-  ({ theme: { durations, colors } }) => `
+  ({ theme: { durations, colors, media } }) => `
    text-transform: uppercase;
    color: ${colors.white};
    padding-bottom: 4px;
@@ -36,6 +55,11 @@ export const StyledMenuItem = styled.li(
    font-family: Lato-Medium, sans-serif;
    border-bottom: 1px solid transparent;
    position: relative;
+   
+   @media${media.large} {
+     padding: 20px 0;
+     text-align: center;
+   }
   
   a {
     padding-bottom: 4px;
@@ -43,6 +67,7 @@ export const StyledMenuItem = styled.li(
     font-family: Lato-Medium, sans-serif;
     border-bottom: 1px solid transparent;
     position: relative;
+    
   @keyframes underlineAnimation {
     0% {
       width: 0;
@@ -63,7 +88,7 @@ export const StyledMenuItem = styled.li(
       bottom: 0;
       left: 0;
       height: 1px;
-      background-color: #fff;
+      background-color: ${colors.white};
       animation: underlineAnimation 300ms ease-out;
       animation-iteration-count: 1;
     }
@@ -78,7 +103,7 @@ export const StyledMenuItem = styled.li(
         left: 0;
         width: 100%;
         height: 1px;
-        background-color: #fff;
+        background-color: ${colors.white};
       }
     }
   }  
@@ -91,13 +116,50 @@ export const StyledLogo = styled.img`
   cursor: pointer;
 `;
 
-export const StyledRightMenu = styled.div`
+export const StyledAsideMenu = styled.div(
+  ({ theme: { media } }) => `
   display: flex;
   gap: 12px;
-`;
+
+  @media${media.large} {
+    display: none;
+  }
+`
+);
+
+export const StyledAsideMobileMenu = styled.div(
+  ({ theme: { media, colors } }) => `
+  display: none;
+  gap: 12px;
+  flex-direction: column;
+  padding-top: 30px;
+  position: relative;
+  
+  @media${media.large} {
+    display: flex;
+  }
+  
+  button {
+    width: 100%;
+  }
+  
+   &:after {
+     content: '';
+     position: absolute;
+     z-index: 500;
+     top: 10px;
+     left: 0;
+     height: 1px;
+     width: 100%;
+     background-color: ${colors.white};
+   }
+
+`
+);
 
 export const StyledNavLink = styled(NavLink)(
   ({ theme: { colors } }) => `
+  flex: 0 1 auto;
   &.active button{
     background-color: ${colors.pink};
     svg path{

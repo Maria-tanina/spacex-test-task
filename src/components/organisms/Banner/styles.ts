@@ -1,51 +1,37 @@
 import styled from "styled-components";
 
 export const StyledTitle = styled.div(
-  ({ theme: { colors } }) => `
+  ({ theme: { colors, media } }) => `
     color: ${colors.white};
     text-align: center;
     font-family: Syne;
-    font-size: 48px;
+    font-size: 3.333vw;
     font-weight: 800;
     line-height: normal;
     text-transform: uppercase;
     position: relative;
-    padding-top: 15%;
+    padding-top: 230px;
     z-index: 100;
     flex-grow: 1;
+    
+    @media${media.medium} {
+        padding-top: 300px;
+    }
+    
+    span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 21.528vw;
+      text-shadow:0px 1px 0 rgb(0,0,0),0px -1px 0 rgb(0,0,0),1px 0px 0 rgb(0,0,0),-1px 0px 0 rgb(0,0,0),1px 1px 0 rgb(0,0,0),1px -1px 0 rgb(0,0,0),-1px 1px 0 rgb(0,0,0),-1px -1px 0 rgb(0,0,0);-webkit-text-shadow:0px 1px 0 rgb(0,0,0),0px -1px 0 rgb(0,0,0),1px 0px 0 rgb(0,0,0),-1px 0px 0 rgb(0,0,0),1px 1px 0 rgb(0,0,0),1px -1px 0 rgb(0,0,0),-1px 1px 0 rgb(0,0,0),-1px -1px 0 rgb(0,0,0);-moz-text-shadow:0px 1px 0 rgb(0,0,0),0px -1px 0 rgb(0,0,0),1px 0px 0 rgb(0,0,0),-1px 0px 0 rgb(0,0,0),1px 1px 0 rgb(0,0,0),1px -1px 0 rgb(0,0,0),-1px 1px 0 rgb(0,0,0),-1px -1px 0 rgb(0,0,0);
+    }
+    
+   
 `
 );
 
-export const StyledMainTitle = styled.div`
+export const StyledLetter = styled.span`
   position: relative;
-  font-size: 310px;
-  text-shadow:
-    0 1px 0 rgb(0, 0, 0),
-    0px -1px 0 rgb(0, 0, 0),
-    1px 0px 0 rgb(0, 0, 0),
-    -1px 0px 0 rgb(0, 0, 0),
-    1px 1px 0 rgb(0, 0, 0),
-    1px -1px 0 rgb(0, 0, 0),
-    -1px 1px 0 rgb(0, 0, 0),
-    -1px -1px 0 rgb(0, 0, 0);
-  -webkit-text-shadow:
-    0px 1px 0 rgb(0, 0, 0),
-    0px -1px 0 rgb(0, 0, 0),
-    1px 0px 0 rgb(0, 0, 0),
-    -1px 0px 0 rgb(0, 0, 0),
-    1px 1px 0 rgb(0, 0, 0),
-    1px -1px 0 rgb(0, 0, 0),
-    -1px 1px 0 rgb(0, 0, 0),
-    -1px -1px 0 rgb(0, 0, 0);
-  -moz-text-shadow:
-    0px 1px 0 rgb(0, 0, 0),
-    0px -1px 0 rgb(0, 0, 0),
-    1px 0px 0 rgb(0, 0, 0),
-    -1px 0px 0 rgb(0, 0, 0),
-    1px 1px 0 rgb(0, 0, 0),
-    1px -1px 0 rgb(0, 0, 0),
-    -1px 1px 0 rgb(0, 0, 0),
-    -1px -1px 0 rgb(0, 0, 0);
 `;
 
 export const StyledBannerWrapper = styled.section<{ $bg: string }>(
@@ -57,6 +43,7 @@ export const StyledBannerWrapper = styled.section<{ $bg: string }>(
   z-index: 5;
   background: url(${$bg}) no-repeat;
   background-size: cover;
+  background-position: center center;
   transition: all ${durations.ms800} ease-out;
   padding-bottom: 33px;
   &::after {
@@ -74,15 +61,18 @@ export const StyledBannerWrapper = styled.section<{ $bg: string }>(
 `
 );
 
-export const StyledDotsWrapper = styled.div`
+export const StyledDotsWrapper = styled.div(
+  ({ theme: { media } }) => `
   display: flex;
   z-index: 100;
   gap: 8px;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-100%, -50%);
-`;
+  
+  @media${media.medium} {
+    bottom: -30px;
+  }
+`
+);
 
 export const StyledScroller = styled.div`
   color: #fff;

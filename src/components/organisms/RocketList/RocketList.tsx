@@ -14,7 +14,7 @@ import {
   StyledToursHeader,
   StyledToursSection,
   StyledToursTitle,
-} from "../../pages/HomePage/styles";
+} from "./styles";
 import { Container } from "../../../styles/container";
 import { StyledCarouselButton } from "../../atoms/CarouselButton/style";
 import arrowLeft from "../../../assets/icons/ArrowLeft.svg";

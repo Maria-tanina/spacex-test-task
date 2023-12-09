@@ -1,8 +1,8 @@
-import { FC, ReactNode, useState } from "react";
+import { ButtonHTMLAttributes, FC, ReactNode, useState } from "react";
 import { StyledActionButton } from "./styles";
 import { RIPPLE_TIMEOUT } from "../../../constants/timers";
 
-interface IRippleButtonProps {
+interface IRippleButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
   $width?: string;
 }
