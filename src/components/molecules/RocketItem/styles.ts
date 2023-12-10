@@ -38,6 +38,8 @@ export const StyledRocketBox = styled.div(
 
 export const StyledRocketImage = styled.img`
   max-width: 100%;
+  object-fit: cover;
+  aspect-ratio: 1.38/1;
 `;
 
 export const StyledRocketTitle = styled.h5(
