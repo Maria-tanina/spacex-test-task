@@ -1,21 +1,21 @@
 import styled from "styled-components";
 import { SLIDES_PER_POW } from "../../../constants/slider";
 
-export const StyledRocketCard = styled.div<{ $hasDeleteButton?: boolean }>(
-  ({ theme: { colors, media }, $hasDeleteButton }) => `
+export const StyledRocketCard = styled.div<{ $isSliderCard?: boolean }>(
+  ({ theme: { colors, media }, $isSliderCard }) => `
     border: 1px solid ${colors.lightBlue};
     ${
-      !$hasDeleteButton &&
+      $isSliderCard &&
       `
       flex: 1 0 auto;
-      max-width: calc(96%/${SLIDES_PER_POW});
-        @media${media.medium} {
-        max-width: calc(96%/2);
+      max-width: calc(96%/${SLIDES_PER_POW.large});
+      
+      @media${media.medium} {
+        max-width: calc(96%/${SLIDES_PER_POW.medium});
       }
       
-      max-width: calc(96%/${SLIDES_PER_POW});
-        @media${media.small} {
-        max-width: 100%;
+      @media${media.small} {
+        max-width: calc(100%/${SLIDES_PER_POW.small});
       }
     `
     };
@@ -30,9 +30,9 @@ export const StyledRocketBox = styled.div(
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-       @media${media.large} {
-        padding: 20px 20px 15px;
-    }
+  @media${media.large} {
+    padding: 20px 20px 15px;
+  }
 `
 );
 
@@ -50,8 +50,8 @@ export const StyledRocketTitle = styled.h5(
     text-transform: uppercase;
     margin-bottom: 16px;
     
-     @media${media.large} {
-        font-size: 16px;
+    @media${media.large} {
+      font-size: 16px;
     }
 `
 );
@@ -67,8 +67,8 @@ export const StyledRocketDescription = styled.div(
     flex: 1 0 auto;
     
     @media${media.large} {
-        font-size: 16px;
-        margin-bottom: 15px;
+      font-size: 16px;
+      margin-bottom: 15px;
     }
 `
 );

@@ -13,5 +13,5 @@ export const StyledNotFoundImage = styled.img`
   width: 100%;
   display: block;
   margin: 0 auto;
-  object-fit:cover;
+  object-fit: cover;
 `;

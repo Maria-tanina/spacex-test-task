@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { SLIDES_PER_POW } from "../../../constants/slider";
+import { SLIDES_GAP, SLIDES_PER_POW } from "../../../constants/slider";
 
 interface IStyledRocketListProps {
   $activeSlide: number;
@@ -9,16 +9,20 @@ export const StyledRocketList = styled.div<IStyledRocketListProps>(
   ({ $activeSlide, theme: { media } }) => `
   display: flex;
   justify-content: space-between;
-  gap: 2%;
+  gap: ${SLIDES_GAP}%;
   margin-bottom: 40px;
   transition: transform 0.5s ease;
-  transform: translateX(-${$activeSlide * (102 / SLIDES_PER_POW)}%);
+  transform: translateX(-${
+    $activeSlide * ((100 + SLIDES_GAP) / SLIDES_PER_POW.large)
+  }%);
   @media${media.medium} {
-    transform: translateX(-${$activeSlide * (102 / 2)}%);
+    transform: translateX(-${
+      $activeSlide * ((100 + SLIDES_GAP) / SLIDES_PER_POW.medium)
+    }%);
     gap: 3%;
   }
   @media${media.small} {
-    transform: translateX(-${$activeSlide * 100}%);
+    transform: translateX(-${$activeSlide * (100 / SLIDES_PER_POW.small)}%);
     gap: 0;
   }
 `

@@ -7,11 +7,11 @@ import {
 } from "./styles";
 import { FC, useEffect } from "react";
 import { ISlide } from "../../../mockData/carouselData";
-import { StyledCarouselDot } from "../../atoms/CarouselDot/styles";
 import { BANNER_INTERVAL } from "../../../constants/timers";
 import ScrollButton from "../../atoms/ScrollButton";
 import { useRecoilState } from "recoil";
 import { bannerState } from "../../../state/atoms";
+import CarouselDot from "../../atoms/CarouselDot";
 
 interface IBannerProps {
   slides: ISlide[];
@@ -45,10 +45,10 @@ const Banner: FC<IBannerProps> = ({ slides, scrollFunc }) => {
             o
             <StyledDotsWrapper>
               {slides.map((slide, i) => (
-                <StyledCarouselDot
+                <CarouselDot
                   key={slide.src}
-                  $isActive={i === activeSlide}
-                  $color="white"
+                  isActive={i === activeSlide}
+                  color="white"
                   onClick={() => setActiveSlide(i)}
                 />
               ))}

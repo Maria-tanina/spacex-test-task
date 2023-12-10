@@ -6,7 +6,6 @@ import {
   StyledDotsWrapper,
   StyledRocketListWrapper,
 } from "./styles";
-import { StyledCarouselDot } from "../../atoms/CarouselDot/styles";
 import { useRecoilState } from "recoil";
 import { rocketCarouselState } from "../../../state/atoms";
 import {
@@ -16,10 +15,12 @@ import {
   StyledToursTitle,
 } from "./styles";
 import { Container } from "../../../styles/container";
-import { StyledCarouselButton } from "../../atoms/CarouselButton/style";
+import { StyledCarouselButton } from "../../atoms/CarouselButton/styles";
 import arrowLeft from "../../../assets/icons/ArrowLeft.svg";
 import arrowRight from "../../../assets/icons/ArrowRight.svg";
 import Spinner from "../../atoms/Spinner";
+import CarouselButton from "../../atoms/CarouselButton";
+import CarouselDot from "../../atoms/CarouselDot";
 
 interface IRocketListProps extends HTMLAttributes<HTMLDivElement> {
   rocketListRef: LegacyRef<HTMLDivElement> | undefined;
@@ -57,9 +58,9 @@ const RocketList: FC<IRocketListProps> = ({ rocketListRef }) => {
           <StyledToursTitle>popular tours</StyledToursTitle>
           {!loading && (
             <StyledCarouselArrows>
-              <StyledCarouselButton onClick={() => handleArrowClick("left")}>
+              <CarouselButton onClick={() => handleArrowClick("left")}>
                 <img src={arrowLeft} alt="arrow left" />
-              </StyledCarouselButton>
+              </CarouselButton>
               <StyledCarouselButton onClick={() => handleArrowClick("right")}>
                 <img src={arrowRight} alt="arrow right" />
               </StyledCarouselButton>
@@ -67,33 +68,31 @@ const RocketList: FC<IRocketListProps> = ({ rocketListRef }) => {
           )}
         </StyledToursHeader>
 
-        <div>
-          {loading ? (
-            <Spinner />
-          ) : (
-            <StyledRocketListWrapper>
-              <StyledRocketList $activeSlide={activeSlide}>
-                {data?.rockets &&
-                  data.rockets.map(
-                    (rocket, i) =>
-                      rocket && (
-                        <RocketItem key={rocket.id} rocket={rocket} index={i} />
-                      )
-                  )}
-              </StyledRocketList>
-              <StyledDotsWrapper>
-                {[...Array(totalSlides)].map((_, dotIndex) => (
-                  <StyledCarouselDot
-                    key={dotIndex}
-                    $isActive={dotIndex === activeSlide}
-                    $color="black"
-                    onClick={() => handleDotClick(dotIndex)}
-                  />
-                ))}
-              </StyledDotsWrapper>
-            </StyledRocketListWrapper>
-          )}
-        </div>
+        {loading ? (
+          <Spinner />
+        ) : (
+          <StyledRocketListWrapper>
+            <StyledRocketList $activeSlide={activeSlide}>
+              {data?.rockets &&
+                data.rockets.map(
+                  (rocket, i) =>
+                    rocket && (
+                      <RocketItem key={rocket.id} rocket={rocket} index={i} />
+                    )
+                )}
+            </StyledRocketList>
+            <StyledDotsWrapper>
+              {[...Array(totalSlides)].map((_, dotIndex) => (
+                <CarouselDot
+                  key={dotIndex}
+                  isActive={dotIndex === activeSlide}
+                  color="black"
+                  onClick={() => handleDotClick(dotIndex)}
+                />
+              ))}
+            </StyledDotsWrapper>
+          </StyledRocketListWrapper>
+        )}
       </Container>
     </StyledToursSection>
   );

@@ -80,8 +80,9 @@ export const StyledDotsWrapper = styled.div(
 `
 );
 
-export const StyledScroller = styled.div`
-  color: #fff;
+export const StyledScroller = styled.div(
+  ({ theme: { colors } }) => `
+  color: ${colors.white};
   position: relative;
   z-index: 100;
   text-align: center;
@@ -95,4 +96,5 @@ export const StyledScroller = styled.div`
   line-height: 40px;
   gap: 8px;
   cursor: pointer;
-`;
+`
+);

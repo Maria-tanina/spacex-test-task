@@ -54,7 +54,7 @@ const RocketItem: FC<IRocketItemProps> = ({
   };
 
   return (
-    <StyledRocketCard $hasDeleteButton={hasDeleteButton}>
+    <StyledRocketCard $isSliderCard={!hasDeleteButton}>
       <StyledRocketImage src={rocketImages[imageIndex]} alt="rocket image" />
       <StyledRocketBox>
         <StyledRocketTitle>{name}</StyledRocketTitle>
