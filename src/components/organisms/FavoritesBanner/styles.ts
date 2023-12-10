@@ -40,7 +40,11 @@ export const StyledFavoritesTitle = styled.h1(
   word-break: break-word;
   
   @media${media.medium} {
-  font-size: 30px;
+    font-size: 30px;
+  }
+  
+  @media${media.small} {
+    font-size: 25px;
   }
 `
 );
